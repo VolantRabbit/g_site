@@ -8,7 +8,7 @@ from og_site.models import Product
 #     context_object_name = 'products'
 
 def products(request):
-  products = Product.objects.all().values()
+  products = Product.objects.all()
   template = loader.get_template('home.html')
   context = {
     'products': products,
