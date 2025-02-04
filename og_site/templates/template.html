@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctopusG</title>
+</head>
+<body>
+<p><a href="/">HOME</a></p>
+<h1>Product List</h1>
+<ul>
+    {% for product in products %}
+        <li>
+            <h3>{{ product.name }}</h3>
+            <p>Price: ${{ product.price }}</p>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 200px;">
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
