@@ -1,9 +1,16 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+dotenv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../keys.env')
+load_dotenv(dotenv_path)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-f%#&zn_$!n+x5m=5jl$29(hh&^kljy*9xb7vmgb*3eh*^low@4'
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 DEBUG = True
 
@@ -11,6 +18,8 @@ ALLOWED_HOSTS = []
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',

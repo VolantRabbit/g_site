@@ -4,12 +4,17 @@
     <h1>Products</h1>
 
     <ul>
-    {% for product in products %}
-        <li>
-            <h3>{{ product.name }}</h3>
-            <p>Price: ${{ product.price }}</p>
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 600px;">
-        </li>
-    {% endfor %}
-</ul>
+        {% for product in products %}
+            <div>
+                <h3>{{ product.name }}</h3>
+                <p>Price: {{ product.price }}</p>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="400">
+                <form action="{% url 'buy_product' product.priority %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Buy</button>
+                </form>
+            </div>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
