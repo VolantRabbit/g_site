@@ -9,7 +9,7 @@ def main(request):
 
 
 def products(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('priority')
     template = loader.get_template('shop.html')
     context = {
         'products': products,
