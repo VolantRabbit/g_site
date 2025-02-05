@@ -1,7 +1,6 @@
 <script type="text/javascript">
     var stripe = Stripe('{{ STRIPE_PUBLIC_KEY }}');
 
-    // Handle the button click to create a checkout session
     document.getElementById('checkout-button').addEventListener('click', function () {
         fetch('/checkout/{{ product.priority }}', {
             method: 'POST',
