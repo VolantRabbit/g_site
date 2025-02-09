@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+# PRODUCT
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -12,7 +12,8 @@ class Product(models.Model):
         return self.name
 
 
-class DataTime(models.Model):
+# FORUM
+class CommonData(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -20,14 +21,14 @@ class DataTime(models.Model):
         abstract = True
 
 
-class Thread(DataTime):
+class Thread(CommonData):
     title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
 
 
-class Post(DataTime):
+class Post(CommonData):
     thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='posts')
     content = models.TextField()
 

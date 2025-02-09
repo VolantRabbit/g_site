@@ -1,0 +1,7 @@
+<h2>Forum Threads</h2>
+<a href="{% url 'thread_create' %}">Create New Thread</a>
+<ul>
+    {% for thread in threads %}
+        <li><a href="{% url 'thread_detail' thread.pk %}">{{ thread.title }}</a></li>
+    {% endfor %}
+</ul>

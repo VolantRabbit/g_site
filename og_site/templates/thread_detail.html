@@ -1,0 +1,9 @@
+<h2>{{ thread.title }}</h2>
+<p>Started by {{ thread.created_by }} on {{ thread.created_at }}</p>
+<hr>
+{% for post in thread.posts.all %}
+    <p>{{ post.created_by }}: {{ post.content }} ({{ post.created_at }})</p>
+    <hr>
+{% endfor %}
+<a href="{% url 'post_create' thread.pk %}">Reply</a>
+<a href="{% url 'forum' %}">Back to Forum</a>
