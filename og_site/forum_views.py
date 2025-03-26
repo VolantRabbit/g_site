@@ -27,7 +27,7 @@ class ThreadCreate(LoginRequiredMixin, CreateView):
         thread = form.save()
 
         # create the initial post
-        content = self.request.POST.get('content')  # Getting content from the form
+        content = self.request.POST.get('content')
         Post.objects.create(
             content=content,
             created_by=self.request.user,

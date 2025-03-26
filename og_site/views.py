@@ -67,8 +67,3 @@ def success(request):
 
 def cancel(request):
     return render(request, 'cancel.html', {'message': 'Payment was canceled.'})
-
-
-# def forum(request):
-#     template = loader.get_template('forum.html')
-#     return HttpResponse(template.render())
